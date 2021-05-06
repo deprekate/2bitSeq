@@ -10,6 +10,9 @@
 
 uint64_t encode(char *original) {
     size_t length = strlen(original);
+	printf("length: %zu\n", length);
+	printf("sizeof: %zu\n", sizeof(uint64_t) );
+	printf("BITS_PER_BYTE: %i\n", BITS_PER_BYTE );
     assert(length * 2 == sizeof(uint64_t) * BITS_PER_BYTE);
     uint64_t result = 0;
     for (size_t i = 0; i < length; i++) {
@@ -32,7 +35,8 @@ void decode(uint64_t encoded, char *decoded, bool rna_flag) {
 }
 
 int main() {
-    char *segment = "GCCGTGCTAAGCGTAACAACTTCAAATCCGCG";
+	//char *segment = "GCCGTGCTAAGCGTAACAACTTCAAATCCGCG";
+    char *segment = "TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
     printf("%s\n", segment);
     uint64_t binary = encode(segment);
